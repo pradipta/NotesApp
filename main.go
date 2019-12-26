@@ -25,5 +25,5 @@ func main() {
 	//	dbconfig.DB.AutoMigrate(models.Note{})
 
 	r := routers.GetRouter()
-	r.Run(":4000")
+	r.Run(":4001")
 }

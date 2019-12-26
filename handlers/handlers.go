@@ -24,5 +24,11 @@ func CreateNote(c *gin.Context) {
 }
 
 func GetNotes(c *gin.Context) {
-	c.String(200, "Here are your notes")
+	var notes []models.Note
+	if err := dbconfig.DB.Find(&notes).Error; err != nil {
+		c.AbortWithError(404, err)
+	}
+
+	c.JSON(200, notes)
+
 }
